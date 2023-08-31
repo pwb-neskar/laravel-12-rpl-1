@@ -1,6 +1,4 @@
-@extends('master')
-
-@section('title', 'Halaman Last Child')
+@extends('template.master')
 
 @section('content')
 

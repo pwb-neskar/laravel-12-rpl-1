@@ -28,9 +28,9 @@ Route::get('/form', function () {
 //     return view('child');
 // });
 
-// Route::get('/last-child', function () {
-//     return view('lastchild');
-// });
+Route::get('/template', function () {
+    return view('template.master');
+});
 
 Route::get('/child', [PagesController::class, 'index']);
 Route::get('/last-child', [PagesController::class, 'create']);
