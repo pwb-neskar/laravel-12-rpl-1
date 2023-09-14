@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\CastController;
+
 
 
 /*
@@ -33,6 +35,6 @@ Route::get('/template', function () {
 });
 
 Route::get('/child', [PagesController::class, 'index']);
-Route::get('/last-child', [PagesController::class, 'create']);
 Route::resource('/author', AuthorController::class);
+Route::resource('/cast', CastController::class);
 
