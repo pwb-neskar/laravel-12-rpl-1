@@ -29,27 +29,23 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
+            <form action="{{ route('genre.update', $genre->id) }}" method="POST">
+              @csrf
+              @method('PUT')
               <div class="card-body">
                 <div class="form-group">
                   <label for="nama">Nama</label>
-                  <input type="text" name="nama" id="nama" class="form-control" value="{{ $cast[0]->nama }}" disabled>
+                  <input type="text" name="nama" id="nama" class="form-control @error('nama') is-invalid @enderror" value="{{ $genre->nama }}">
                 </div>
-                <div class="form-group">
-                  <label for="umur">Umur</label>
-                  <input type="number" name="umur" id="umur" class="form-control" value="{{ $cast[0]->umur }}" disabled>
-                </div>
-                <div class="form-group">
-                  <label for="nama">Bio</label>
-                  <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" disabled>{{ $cast[0]->bio }}</textarea>
-                </div>
+                @error('nama')
+                      <div class="alert alert-danger">{{ $message }}</div>
+                  @enderror
               </div>
               <!-- /.card-body -->
-              <a href="{{ route('cast.show', $value->id) }}" class="btn btn-sm btn-info">
-                Detail
-              </a>
               <div class="card-footer">
-                
+                <button type="submit" class="btn btn-warning">Update</button>
               </div>
+            </form>
           </div>
           <!-- /.card -->
         </div>

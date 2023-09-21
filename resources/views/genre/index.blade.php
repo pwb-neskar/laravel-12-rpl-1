@@ -34,9 +34,9 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">DataTable with minimal features & hover style</h3>
-              <a href="{{ route('cast.create') }}" class="btn btn-sm btn-primary">
+              <a href="{{ route('genre.create') }}" class="btn btn-sm btn-primary">
               <i class="fas fa-plus"></i>
-              Add Cast
+              Add Genre
               </a>
             </div>
             <!-- /.card-header -->
@@ -46,27 +46,25 @@
                 <tr>
                   <th>No</th>
                   <th>Nama</th>
-                  <th>Umur</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                  @foreach ($casts as $key => $value)
+                  @foreach ($genres as $key => $value)
                   <tr>
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $value->nama }}</td>
-                    <td>{{ $value->umur }}</td>
                     <td>
-                      <a href="{{ route('cast.show', $value->id) }}" class="btn btn-sm btn-info">
+                      <a href="{{ route('genre.show', $value->id) }}" class="btn btn-sm btn-info">
                         Detail
                       </a>
-                      <a href="{{ route('cast.edit', $value->id) }}" class="btn btn-sm btn-warning">
+                      <a href="{{ route('genre.edit', $value->id) }}" class="btn btn-sm btn-warning">
                         Edit
                       </a>
-                      <form action="{{ route('cast.destroy', $value->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-sm btn-danger">hapus</button>
+                      <form action="{{ route('genre.destroy', $value->id) }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                       </form>
                     </td>
                   </tr>

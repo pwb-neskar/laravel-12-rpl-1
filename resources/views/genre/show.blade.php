@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Data Cast</h1>
+        <h1>Data genre</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -32,23 +32,14 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="nama">Nama</label>
-                  <input type="text" name="nama" id="nama" class="form-control" value="{{ $cast[0]->nama }}" disabled>
+                  <input type="text" name="nama" id="nama" class="form-control" value="{{ $genre->nama }}" disabled>
                 </div>
-                <div class="form-group">
-                  <label for="umur">Umur</label>
-                  <input type="number" name="umur" id="umur" class="form-control" value="{{ $cast[0]->umur }}" disabled>
-                </div>
-                <div class="form-group">
-                  <label for="nama">Bio</label>
-                  <textarea name="bio" id="bio" cols="30" rows="10" class="form-control" disabled>{{ $cast[0]->bio }}</textarea>
-                </div>
+              
               </div>
               <!-- /.card-body -->
-              <a href="{{ route('cast.show', $value->id) }}" class="btn btn-sm btn-info">
-                Detail
-              </a>
+
               <div class="card-footer">
-                
+                <a href="{{ route('genre.index') }}" class="btn btn-secondary">kembali</a>
               </div>
           </div>
           <!-- /.card -->

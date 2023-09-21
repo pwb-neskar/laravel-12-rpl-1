@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CastController;
-
+use App\Http\Controllers\GenreController;
 
 
 /*
@@ -38,3 +38,4 @@ Route::get('/child', [PagesController::class, 'index']);
 Route::resource('/author', AuthorController::class);
 Route::resource('/cast', CastController::class);
 
+Route::resource('/genre', GenreController::class);
