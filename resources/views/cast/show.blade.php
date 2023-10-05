@@ -44,9 +44,7 @@
                 </div>
               </div>
               <!-- /.card-body -->
-              <a href="{{ route('cast.show', $value->id) }}" class="btn btn-sm btn-info">
-                Detail
-              </a>
+
               <div class="card-footer">
                 
               </div>
