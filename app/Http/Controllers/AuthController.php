@@ -49,9 +49,26 @@ class AuthController extends Controller
         return view('auth.login');
     }
     // authentication
-    public function authentication()
+    public function authentication(Request $request, Auth $auth)
     {
+        // validasi form input
+        $request->validate([
+            'email'     => 'required|email',
+            'password'  => 'required'
+        ]);
         
+        // proses authentikasi
+        $credential = $request->only('email', 'password');
+        if ($auth::attempt($credential))
+        {
+            $request->session()->regenerate();
+            return redirect()->route('auth.dashboard');
+        }
+        // jika proses authentikasi gagal maka akan di redirect ke halaman login
+        return back()->withErrors([
+            'email' => 'Email atau password tidak ditemukan',
+        ])->onlyInput('email');
+
     }
     // dashboard
     public function dashboard()
