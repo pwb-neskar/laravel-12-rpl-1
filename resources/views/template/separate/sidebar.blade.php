@@ -66,6 +66,14 @@
             </p>
           </a>
         </li>
+        <li class="nav-item">
+          <form action="{{ route('auth.logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-secondary btn-md nav-link">
+              Logout
+            </button>
+          </form>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
