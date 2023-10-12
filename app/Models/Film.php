@@ -20,6 +20,6 @@ class Film extends Model
 
     public function genre()
     {
-        return $this->hasMany('App\Models\Genre');
+        return $this->hasMany('App\Models\Genre','id', 'genre_id');
     }
 }

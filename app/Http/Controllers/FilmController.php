@@ -16,6 +16,8 @@ class FilmController extends Controller
     public function index()
     {
         //
+        $films = Film::all();
+        return view('film.index', compact('films'));
     }
 
     /**
@@ -53,7 +55,7 @@ class FilmController extends Controller
             'poster'    => $result,
         ]);
 
-        return view('film.index')->withSuccess('Film telah di tambahkan');
+        return redirect()->route('film.index')->withSuccess('Film telah di tambahkan');
     }
 
     /**
@@ -62,6 +64,7 @@ class FilmController extends Controller
     public function show(Film $film)
     {
         //
+        return view ('film.show',compact('film')) ;
     }
 
     /**

@@ -34,42 +34,47 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-        <li class="nav-item menu-open">
-          <a href="#" class="nav-link active">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-              Starter Pages
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="#" class="nav-link active">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Active Page</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Inactive Page</p>
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Simple Link
-              <span class="right badge badge-danger">New</span>
+              Dashboard
+              <span class="right badge badge-danger">soon</span>
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ asset('film') }}" class="nav-link @if(Request::segment(1) == 'film') active @endif">
+            <i class="nav-icon fas fa-film"></i>
+            <p>
+             film
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ asset('genre') }}" class="nav-link @if (Request::segment(1) == 'genre')
+            active
+          @endif">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+             genre
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ asset('cast') }}" class="nav-link @if (Request::segment(1) == 'cast')
+          active
+        @endif">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+             cast
             </p>
           </a>
         </li>
         <li class="nav-item">
           <form action="{{ route('auth.logout') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-secondary btn-md nav-link">
+            <button type="submit" class="btn btn-warning btn-md nav-link">
               Logout
             </button>
           </form>
