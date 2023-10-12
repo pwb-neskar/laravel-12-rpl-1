@@ -8,8 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Genre extends Model
 {
     use HasFactory;
-    protected $table    =   'genres';
+    protected $table    = 'genres';
     protected $fillable =   [
         'nama'
     ];
+
+    public function film()
+    {
+        return $this->belongsTo('App/Models/Film');
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\CastController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FilmController;
 
 
 
@@ -30,26 +31,6 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('/logout', 'logout')->name('auth.logout');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/form', function () {
-    return view('form');
-})->name('form');
-
-// Route::get('/child', function () {
-//     return view('child');
-// });
-
-Route::get('/template', function () {
-    return view('template.master');
-});
-
-Route::get('/child', [PagesController::class, 'index']);
-
-Route::resource('/author', AuthorController::class);
-
-
 Route::resource('/cast', CastController::class)->middleware('auth');
 Route::resource('/genre', GenreController::class)->middleware('auth');
+Route::resource('/film', FilmController::class)->middleware('auth');
