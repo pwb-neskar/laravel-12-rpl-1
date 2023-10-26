@@ -7,6 +7,9 @@ use App\Http\Controllers\CastController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FilmController;
+use App\Http\Controllers\PeranController;
+use App\Http\Controllers\ProfileController;
+
 
 
 
@@ -29,8 +32,14 @@ Route::controller(AuthController::class)->group(function() {
     Route::post('/auth', 'authentication')->name('auth.authentication');
     Route::get('/dashboard', 'dashboard')->name('auth.dashboard');
     Route::post('/logout', 'logout')->name('auth.logout');
+
 });
 
 Route::resource('/cast', CastController::class)->middleware('auth');
 Route::resource('/genre', GenreController::class)->middleware('auth');
 Route::resource('/film', FilmController::class)->middleware('auth');
+
+Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('user.profile')->middleware('auth');
+
+Route::get('/film/{id}/peran/create', [PeranController::class, 'create'])->name('peran.create');
+Route::post('/film/{id}/peran', [PeranController::class, 'store'])->name('peran.store');
