@@ -52,26 +52,28 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
-          <a href="{{ asset('genre') }}" class="nav-link @if (Request::segment(1) == 'genre')
+        @can('isAdmin')
+          <li class="nav-item">
+            <a href="{{ asset('genre') }}" class="nav-link @if (Request::segment(1) == 'genre')
+              active
+            @endif">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+              genre
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ asset('cast') }}" class="nav-link @if (Request::segment(1) == 'cast')
             active
           @endif">
-            <i class="nav-icon fas fa-book"></i>
-            <p>
-             genre
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{ asset('cast') }}" class="nav-link @if (Request::segment(1) == 'cast')
-          active
-        @endif">
-            <i class="nav-icon fas fa-user"></i>
-            <p>
-             cast
-            </p>
-          </a>
-        </li>
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+              cast
+              </p>
+            </a>
+          </li>
+        @endcan
         <li class="nav-item">
           <form action="{{ route('auth.logout') }}" method="POST">
             @csrf

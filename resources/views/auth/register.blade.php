@@ -90,7 +90,17 @@
         </div>
         @error('alamat')
         <div class="alert alert-danger">{{ $message }}</div>
-      @enderror
+        @enderror
+
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        @error('alamat')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
           <!-- /.col -->
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Register</button>

@@ -35,7 +35,7 @@ Route::controller(AuthController::class)->group(function() {
 
 });
 
-Route::resource('/cast', CastController::class)->middleware('auth');
+Route::resource('/cast', CastController::class)->middleware(['auth', 'can:isAdmin']); 
 Route::resource('/genre', GenreController::class)->middleware('auth');
 Route::resource('/film', FilmController::class)->middleware('auth');
 
