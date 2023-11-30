@@ -7,6 +7,7 @@ use App\Models\Genre;
 use App\Models\Film;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CloudinaryStorage;
+use PDF;
 
 class FilmController extends Controller
 {
@@ -61,9 +62,15 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Film $film)
+    public function show(Film $film, Request $request)
     {
         //
+        if($request->has('download'))
+	    {
+	        $pdf = PDF::loadView('film.show',$film);
+	        return $pdf->download(`$film->judul.pdf`);
+	    }
+
         return view ('film.show',compact('film')) ;
     }
 

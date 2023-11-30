@@ -9,6 +9,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PeranController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ExportDataToExcel;
+use App\Http\Controllers\ExportPdfController;
 
 
 
@@ -43,3 +45,8 @@ Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('user.pr
 
 Route::get('/film/{id}/peran/create', [PeranController::class, 'create'])->name('peran.create');
 Route::post('/film/{id}/peran', [PeranController::class, 'store'])->name('peran.store');
+
+Route::get('/export-pdf/film/{film}', [ExportPdfController::class, 'exportPdfFilm'])->name('exportpdf.film');
+
+Route::get('/export/peran', [ExportDataToExcel::class, 'exportPeran'])->name('peran.export')->middleware(['auth', 'can:isAdmin']);
+Route::get('/export/cast', [ExportDataToExcel::class, 'exportCast'])->name('cast.export')->middleware(['auth', 'can:isAdmin']);

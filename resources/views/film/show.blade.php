@@ -30,8 +30,7 @@
                     <b>Friends</b> <a class="float-right">13,287</a>
                   </li>
                 </ul>
-
-                <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+                <a class="btn btn-primary" href="{{route('exportpdf.film',$film->id)}}">Download PDF</a>
               </div>
               <!-- /.card-body -->
             </div>

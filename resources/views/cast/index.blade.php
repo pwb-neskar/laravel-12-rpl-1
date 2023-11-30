@@ -35,8 +35,11 @@
             <div class="card-header">
               <h3 class="card-title">DataTable with minimal features & hover style</h3>
               <a href="{{ route('cast.create') }}" class="btn btn-sm btn-primary">
-              <i class="fas fa-plus"></i>
-              Add Cast
+                <i class="fas fa-plus"></i>
+                Add Cast
+              </a>
+              <a href="{{ route('cast.export') }}" class="btn btn-sm btn-success">
+                <i class="fas fa-down"></i> Export to Excel
               </a>
             </div>
             <!-- /.card-header -->
